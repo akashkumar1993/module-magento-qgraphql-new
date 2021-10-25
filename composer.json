@@ -1,12 +1,7 @@
 {
     "name": "qsciences/module-magento-graphql-new",
     "description": "Magento2 Graphql Extension",
-    "repositories": {
-        "module-magento-qgraphql-new": {
-            "type": "git",
-            "url": "https://github.com/akashkumar1993/module-magento-qgraphql-new"
-        }
-    },
+    "minimum-stability": "dev",
     "require": {
       "php": "^7.3|^7.4"
     },
