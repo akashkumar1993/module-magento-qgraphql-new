@@ -1,0 +1,52 @@
+# Copyright © Magento, Inc. All rights reserved.
+# See COPYING.txt for license details.
+
+type Query {
+    getOrderEntityId (
+        orderNumber: String @doc(description: "Increment Id of the Order")
+    ): GetOrderEntityId @resolver(class: "Qsciences\\GraphQl\\Model\\Resolver\\GetOrderEntityId") @doc(description: "This Will Return Query of the order")
+
+    getDirectScaleOrder (
+        orderStatus: String @doc(description: "Order Status of the Order"),
+        createdStartDate: String @doc(description: "Order created start date of the Order"),
+        createdEndDate: String @doc(description: "Order created end date of the Order")
+    ): GetDirectScaleOrder @resolver(class: "Qsciences\\GraphQl\\Model\\Resolver\\GetDirectScaleOrder") @doc(description: "This Will Return Query of the order")
+}
+
+type GetOrderEntityId @doc(description: "Defines entity id of order") {
+    entity_id: String @doc(description: "Entity Id of order")
+}
+
+type GetDirectScaleOrder @doc(description: "Defines All data of order") {
+    orders: [orderCollection] @doc(description: "collection of order")
+}
+
+type orderCollection {
+    associate_id: String @doc(description: "associate id of customer")
+    legacy_associate_id: String @doc(description: "legacy associate id of customer")
+    entity_id: Int @doc(description: "Entity Id of order")
+    increment_id: String @doc(description: "Increment Id of order")
+    items: [orderItems] @doc(description: "Array of order items")
+    subtotal: Float @doc(description: "The subtotal price of the product.")
+    shipping_amount: Float @doc(description: "The subtotal price of the product.")
+    tax_amount: Float @doc(description: "The tax amount of the product.")
+    total_due: Float @doc(description: "The total due of the product.")
+    total_pv: Int @deprecated(description: "sum of all order Item's PV")
+}
+
+type orderItems {
+    sku: String @doc(description: "sku of product")
+    name: String @doc(description: "name of product")
+    qty_ordered: Int @doc(description: "quantity of ordered product.")
+    price: Float @doc(description: "The price of the ordered product.")
+    pv: Int @deprecated(description: "the PV value of the ordered product.")
+}
+
+interface ProductInterface {
+    inventory : MpStockQty @resolver(class: "Qsciences\\GraphQl\\Model\\Resolver\\Product\\StockQty") @doc(description: "Stock status attributes")
+}
+
+type MpStockQty {
+    manage_stock: String @doc(description: "Manage Stock of item")
+    qty: Int @doc(description: "The quantity of the item")
+}

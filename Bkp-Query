@@ -1,0 +1,145 @@
+
+query {
+    getOrderEntityId (
+        orderNumber: "000000005",
+    ) {
+      entity_id
+    }
+}
+
+------------------------------------------
+
+query {
+    getDirectScaleOrder (
+        orderStatus: "pending",
+        createdStartDate: "2021-10-06",
+        createdEndDate: "2021-10-07"
+      
+    ) {
+      orders{
+            associate_id
+            legacy_associate_id
+            entity_id
+            increment_id
+            items{
+                sku
+                name
+                qty_ordered
+                price
+                pv
+            }
+            subtotal
+            shipping_amount
+            tax_amount
+            total_due
+            total_pv
+      }
+    }
+}
+
+------------------------------------------
+{
+  products(search: "test Pro") {
+    items {
+      id
+      sku
+      description {
+        html
+      }
+      short_description {
+        html
+      }
+      special_price
+      special_from_date
+      special_to_date
+      attribute_set_id
+      created_at
+      type_id
+      websites {
+        id
+      }
+      price {
+        minimalPrice {
+          amount {
+            value
+            currency
+          }
+          adjustments {
+            code
+            amount {
+              value
+              currency
+            }
+            description
+          }
+        }
+        regularPrice {
+          amount {
+            value
+            currency
+          }
+          adjustments {
+            code
+            amount {
+              value
+              currency
+            }
+            description
+          }
+        }
+        maximalPrice {
+          amount {
+            value
+            currency
+          }
+          adjustments {
+            code
+            amount {
+              value
+              currency
+            }
+            description
+          }
+        }
+      }
+      price_range {
+        minimum_price {
+          regular_price {
+            value
+            currency
+          }
+          final_price {
+            value
+            currency
+          }
+        }
+        maximum_price {
+          regular_price {
+            value
+            currency
+          }
+          final_price {
+            value
+            currency
+          }
+        }
+      }
+      categories {
+        id
+      }
+      canonical_url
+      media_gallery {
+        disabled
+        label
+        position
+        url
+      }
+      stock_status
+      inventory {
+        manage_stock
+        qty
+      }
+    }
+    total_count
+  }
+}
