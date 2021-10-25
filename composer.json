@@ -1,6 +1,6 @@
 {
     "name": "qsciences/module-magento-graphql-new",
-    "description": "Magento2 Graphql Extension",
+    "description": "Qsciences Graphql Extension",
     "type": "magento2-module",
     "license": "proprietary",
     "require": {
