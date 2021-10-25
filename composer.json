@@ -7,7 +7,6 @@
             "url": "https://github.com/akashkumar1993/module-magento-qgraphql-new"
         }
     },
-    "minimum-stability": "dev",
     "require": {
       "php": "^7.3|^7.4"
     },
