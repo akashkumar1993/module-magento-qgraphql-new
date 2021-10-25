@@ -1,19 +1,29 @@
 {
     "name": "qsciences/module-magento-graphql-new",
-    "description": "Qsciences Graphql Extension",
-    "type": "magento2-module",
-    "license": "proprietary",
+    "description": "Magento2 Graphql Extension",
     "require": {
-      "php": "^7.3|^7.4",
-      "magento/framework": "*"
+      "php": "^7.3|^7.4"
     },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+      "OSL-3.0",
+      "AFL-3.0"
+    ],
+    "authors": [
+      {
+        "name": "Qsciences",
+        "email": "admin@qsciences.com",
+        "homepage": "https://www.qsciences.com",
+        "role": "Leader"
+      }
+    ],
     "autoload": {
-      "psr-4": {
-        "Qsciences\\GraphQl\\": ""
-      },
       "files": [
         "registration.php"
-      ]  
-    },
-    "version": "100.0.0"
+      ],
+      "psr-4": {
+        "Qsciences\\GraphQl\\": ""
+      }
+    }
 }
